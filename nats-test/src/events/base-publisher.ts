@@ -1,4 +1,3 @@
-import { resolveSoa } from 'dns';
 import { Stan } from 'node-nats-streaming';
 import { Subjects } from './subjects';
 

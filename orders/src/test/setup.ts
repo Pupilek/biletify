@@ -1,7 +1,5 @@
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import mongoose from 'mongoose';
-import { app } from '../app';
-import request from 'supertest';
 import jwt from 'jsonwebtoken';
 
 declare global {
@@ -11,7 +9,6 @@ declare global {
     }
   }
 }
-// jest.mock('../__mocks__/nats-wrapper.ts');
 jest.mock('../nats-wrapper.ts');
 let mongo: any;
 
