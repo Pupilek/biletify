@@ -1,10 +1,15 @@
+import mongoose from 'mongoose';
 import request from 'supertest';
 import { app } from '../../app';
 import { Ticket } from '../../models/ticket';
 
 it('TC1. Fetching th order', async () => {
   // Step 1 - ticket creation
-  const ticket = Ticket.build({ title: 'Pink Floyd concert 2022', price: 650 });
+  const ticket = Ticket.build({
+    id: mongoose.Types.ObjectId().toHexString(),
+    title: 'Pink Floyd concert 2022',
+    price: 650,
+  });
   await ticket.save();
 
   const user = global.signin();
@@ -29,7 +34,11 @@ it('TC1. Fetching th order', async () => {
 });
 it('TC2. Fail if one user tries to fetch another users order', async () => {
   // Step 1 - ticket creation
-  const ticket = Ticket.build({ title: 'Pink Floyd concert 2022', price: 650 });
+  const ticket = Ticket.build({
+    id: mongoose.Types.ObjectId().toHexString(),
+    title: 'Pink Floyd concert 2022',
+    price: 650,
+  });
   await ticket.save();
 
   const user = global.signin();

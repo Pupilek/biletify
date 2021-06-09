@@ -70,3 +70,18 @@ it('TC6. Creates a ticket with valid inputs', async () => {
   expect(tickets[0].price).toEqual(price);
   expect(tickets[0].title).toEqual(title);
 });
+
+it('TC7.Publishes an event', async () => {
+  const title = 'Pink Floyd concert 2022';
+
+  await request(app)
+    .post('/api/tickets')
+    .set('Cookie', global.signin())
+    .send({
+      title,
+      price: 800,
+    })
+    .expect(201);
+
+  expect(natsWrapper.client.publish).toHaveBeenCalled();
+});
