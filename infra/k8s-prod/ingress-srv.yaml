@@ -7,7 +7,11 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: 'true'
 spec:
   rules:
+<<<<<<< HEAD
     - host: www.biletify-app-vistula.xyz
+=======
+    - host: biletify.dev
+>>>>>>> 320e10263126fa5d7c88cab50c9fc8b0ae633f71
       http:
         paths:
           - path: /api/payments/?(.*)
