@@ -1,13 +1,13 @@
 name: deploy-manifests
 
-on: 
+on:
   push:
     branches:
       - main
     paths:
-     - 'infra/**'
+      - 'infra/**'
 
-jobs: 
+jobs:
   build:
     runs-on: ubuntu-latest
     steps:
